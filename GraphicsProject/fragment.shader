@@ -39,4 +39,5 @@ void main() {
 	vec3 specularColor = (fColor.xyz + kSpecular) * iSpecular * specularTerm;
 
 	pColor = vec4(ambientColor + diffuseColor + specularColor, 1.0f);
+
 }
