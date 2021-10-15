@@ -10,18 +10,17 @@ void BuddhaWorld::onStart()
 	add(m_camera);
 
 	//Light
-	m_light = new Light(
-		{ 0.6f, 0.4f, 1.0f },
-		{ 0.5f, 0.5f, 0.5f, 1.0f },
-		{ 0.5f, 0.5f, 0.5f, 0.5f },
-		{ 0.5f, 0.5f, 0.5f, 0.5f }
-	);
-	m_light->setDirection(glm::vec3{ -60, -60, -60 });
+	m_light = new Light();
+	m_light->setDirection(glm::vec3(1.0f, 0.0f, -1.0f));
+	m_light->setAmbient(glm::vec4(0.4f, 0.4f, 0.4f, 1.0f));
+	m_light->setDiffuse(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
+	m_light->setSpecular(glm::vec4(6.0f, 1.0f, 1.0f, 1.0f));
 	add(m_light);
 
 	//Cube
 	m_cube = new Cube();
 	m_cube->setColor(glm::vec4(0.3f, 0.6f, 1.0f, 1.0f));
+	m_cube->getTransform()->scale(glm::vec3(0.1f));
 	add(m_cube);
 
 	//Dragon
