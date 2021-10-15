@@ -11,6 +11,8 @@ void PlayerCamera::onUpdate(float deltaTime)
     int keyRight = GLFW_KEY_D;
     int keyUp = GLFW_KEY_E;
     int keyDown = GLFW_KEY_Q;
+    int sprintKey = GLFW_KEY_LEFT_SHIFT;
+
 
     //Get the direction vectors
     glm::vec3 right = getTransform()->getRight();
@@ -20,26 +22,50 @@ void PlayerCamera::onUpdate(float deltaTime)
     //Check input
     if (glfwGetKey(window, keyForward)) {
         //Move forward
+        if (glfwGetKey(window, sprintKey))
+        {
+            getTransform()->translate(forward * m_moveSpeed * m_sprintSpeed * (float)deltaTime);
+        }
         getTransform()->translate(forward * m_moveSpeed * (float)deltaTime);
     }
     if (glfwGetKey(window, keyBack)) {
         //Move back
+        if (glfwGetKey(window, sprintKey))
+        {
+            getTransform()->translate(-forward * m_moveSpeed * m_sprintSpeed * (float)deltaTime);
+        }
         getTransform()->translate(-forward * m_moveSpeed * (float)deltaTime);
     }
     if (glfwGetKey(window, keyLeft)) {
         //Move left
+        if (glfwGetKey(window, sprintKey))
+        {
+            getTransform()->translate(-right * m_moveSpeed * m_sprintSpeed * (float)deltaTime);
+        }
         getTransform()->translate(-right * m_moveSpeed * (float)deltaTime);
     }
     if (glfwGetKey(window, keyRight)) {
         //Move right
+        if (glfwGetKey(window, sprintKey))
+        {
+            getTransform()->translate(right * m_moveSpeed * m_sprintSpeed * (float)deltaTime);
+        }
         getTransform()->translate(right * m_moveSpeed * (float)deltaTime);
     }
     if (glfwGetKey(window, keyUp)) {
         //Move up
+        if (glfwGetKey(window, sprintKey))
+        {
+            getTransform()->translate(up * m_moveSpeed * m_sprintSpeed * (float)deltaTime);
+        }
         getTransform()->translate(up * m_moveSpeed * (float)deltaTime);
     }
     if (glfwGetKey(window, keyDown)) {
         //Move down
+        if (glfwGetKey(window, sprintKey))
+        {
+            getTransform()->translate(-up * m_moveSpeed * m_sprintSpeed * (float)deltaTime);
+        }
         getTransform()->translate(-up * m_moveSpeed * (float)deltaTime);
     }
 

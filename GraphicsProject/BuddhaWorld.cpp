@@ -13,7 +13,7 @@ void BuddhaWorld::onStart()
 	m_light = new Light(
 		{ 0.6f, 0.4f, 1.0f },
 		{ 0.5f, 0.5f, 0.5f, 1.0f },
-		{ 1.0f, 1.0f, 1.0f, 1.0f },
+		{ 0.5f, 0.5f, 0.5f, 0.5f },
 		{ 0.5f, 0.5f, 0.5f, 0.5f }
 	);
 	m_light->setDirection(glm::vec3{ -60, -60, -60 });
