@@ -1,4 +1,6 @@
 #include "BuddhaWorld.h"
+#include "gl_core_4_4.h"
+#include "glm/ext.hpp"
 
 void BuddhaWorld::onStart()
 {
@@ -10,13 +12,25 @@ void BuddhaWorld::onStart()
 	add(m_camera);
 
 	//Light
-	m_light = new Light();
-	m_light->setDirection(glm::vec3(1.0f, 0.0f, -1.0f));
-	m_light->setAmbient(glm::vec4(0.4f, 0.4f, 0.4f, 1.0f));
-	m_light->setDiffuse(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
-	m_light->setSpecular(glm::vec4(6.0f, 1.0f, 1.0f, 1.0f));
+	m_light = new Light(
+		{ 1.0f, -1.0f, 1.0f },
+		{ 0.5f, 0.5f, 0.5f, 1.0f },
+		{ 1.0f, 1.0f, 1.0f, 1.0f },
+		{ 1.0f, 1.0f, 1.0f, 1.0f }
+	);
 	add(m_light);
 
+	//Flashlight
+	m_flashlight = new Flashlight(
+		m_camera->getTransform()->getPosition(),
+		m_camera->getTransform()->getForward(),
+		{ 0.5f, 0.5f, 0.5f, 1.0f },
+		{ 0.8f, 0.8f, 0.8f, 1.0f },
+		{ 1.0f, 0.0f, 1.0f, 1.0f },
+		12.5f,
+		17.5f
+	);
+	add(m_flashlight);
 	//Cube
 	m_cube = new Cube();
 	m_cube->setColor(glm::vec4(0.3f, 0.6f, 1.0f, 1.0f));
@@ -31,10 +45,17 @@ void BuddhaWorld::onStart()
 	add(m_buddha);
 }
 
+void BuddhaWorld::onUpdate(float deltaTime)
+{
+	m_flashlight->setPosition(m_camera->getTransform()->getPosition());
+	m_flashlight->getTransform()->setForward(m_camera->getTransform()->getForward());
+}
+
 void BuddhaWorld::onEnd()
 {
 	destroy(m_camera);
 	destroy(m_light);
+	destroy(m_flashlight);
 	destroy(m_buddha);
 	destroy(m_cube);
 }
