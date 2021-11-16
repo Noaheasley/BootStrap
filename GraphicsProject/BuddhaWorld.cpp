@@ -35,9 +35,12 @@ void BuddhaWorld::onStart()
 	m_cube = new Cube();
 	m_cube->setColor(glm::vec4(0.3f, 0.6f, 1.0f, 1.0f));
 	m_cube->getTransform()->scale(glm::vec3(0.1f));
+	if (!m_raccoon.load("Raccoon.jpg")) {
+		printf("Failed to load texture.\n");
+	}
 	add(m_cube);
 
-	//Dragon
+	//Buddha
 	m_buddha = new OBJMesh();
 	m_buddha->load("Buddha.obj");
 	m_buddha->getTransform()->setPosition({ 0.0f, -1.0f, 0.0f });
@@ -49,6 +52,22 @@ void BuddhaWorld::onUpdate(float deltaTime)
 {
 	m_flashlight->setPosition(m_camera->getTransform()->getPosition());
 	m_flashlight->getTransform()->setForward(m_camera->getTransform()->getForward());
+}
+
+void BuddhaWorld::onDraw()
+{
+	int program = -1;
+	glGetIntegerv(GL_CURRENT_PROGRAM, &program);
+	if (program == -1)
+		printf("No shader bound.\n");
+
+	int diffuseTextureUniform = glGetUniformLocation(program, "diffuseTexture");
+	if (diffuseTextureUniform >= 0)
+		glUniform1i(diffuseTextureUniform, 0);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, m_raccoon.getHandle());
+
+	m_cube->draw();
 }
 
 void BuddhaWorld::onEnd()

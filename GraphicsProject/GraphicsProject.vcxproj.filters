@@ -146,4 +146,9 @@
     <CopyFileToFolders Include="Dragon.obj" />
     <CopyFileToFolders Include="Lucy.obj" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="Raccoon.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
 </Project>
