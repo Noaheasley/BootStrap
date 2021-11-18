@@ -6,11 +6,18 @@
 3. once you open the file and run the .exe
 
 ### using the program
-w - move forward
-a - move left
-s - move backwards
-d - move right
-q - move up
-e - move down
-shift - increase the speed of the camera
-right click - rotates the camera
+  w - move forward
+  
+  a - move left
+  
+  s - move backwards
+  
+  d - move right
+  
+  q - move up
+  
+  e - move down
+  
+  shift - increase the speed of the camera
+  
+  right click - rotates the camera
