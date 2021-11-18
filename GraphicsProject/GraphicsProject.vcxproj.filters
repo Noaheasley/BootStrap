@@ -147,7 +147,7 @@
     <CopyFileToFolders Include="Lucy.obj" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Raccoon.jpg">
+    <Image Include="earth_diffuse.jpg">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

@@ -35,10 +35,16 @@ void BuddhaWorld::onStart()
 	m_cube = new Cube();
 	m_cube->setColor(glm::vec4(0.3f, 0.6f, 1.0f, 1.0f));
 	m_cube->getTransform()->scale(glm::vec3(0.1f));
-	if (!m_raccoon.load("Raccoon.jpg")) {
+	add(m_cube);
+	//Quad
+	m_quad = new Quad();
+	m_quad->setColor(glm::vec4(0.3f, 0.6f, 1.0f, 1.0f));
+	m_quad->getTransform()->scale(glm::vec4(1.0f));
+	m_quad->getTransform()->setPosition({ 3.0f, 0.0f, 0.0f });
+	if (!m_earth.load("earth_diffuse.jpg")) {
 		printf("Failed to load texture.\n");
 	}
-	add(m_cube);
+	add(m_quad);
 
 	//Buddha
 	m_buddha = new OBJMesh();
@@ -65,9 +71,9 @@ void BuddhaWorld::onDraw()
 	if (diffuseTextureUniform >= 0)
 		glUniform1i(diffuseTextureUniform, 0);
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, m_raccoon.getHandle());
+	glBindTexture(GL_TEXTURE_2D, m_earth.getHandle());
 
-	m_cube->draw();
+	m_quad->draw();
 }
 
 void BuddhaWorld::onEnd()
@@ -77,4 +83,5 @@ void BuddhaWorld::onEnd()
 	destroy(m_flashlight);
 	destroy(m_buddha);
 	destroy(m_cube);
+	destroy(m_quad);
 }

@@ -69,20 +69,9 @@ Cube::Vertex* Cube::generateVertices(unsigned int& vertexCount, unsigned int& tr
 	vertices[34].position = { -0.5f, 0.5f,  0.5f, 0.5f };
 	vertices[35].position = { 0.5f, 0.5f,  0.5f, 0.5f };
 
-
-
 	for (int i = 0; i < vertexCount; i++) {
 		vertices[i].color = m_color;
 	}
-
-	//triangle 0
-	vertices[30].texCoord = { 1.0f, 1.0f };
-	vertices[31].texCoord = { 0.0f, 1.0f };
-	vertices[32].texCoord = { 0.0f, 0.0f};
-	//triangle 1
-	vertices[33].texCoord = { 1.0f, 1.0f };
-	vertices[34].texCoord = { 1.0f, 0.0f };
-	vertices[35].texCoord = { 0.0f, 0.0f };
 
 	return vertices;
 }

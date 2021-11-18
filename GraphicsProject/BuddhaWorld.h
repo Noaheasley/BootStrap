@@ -5,6 +5,7 @@
 #include "Flashlight.h"
 #include "OBJMesh.h"
 #include "Cube.h"
+#include "Quad.h"
 
 class BuddhaWorld :	public World
 {
@@ -20,6 +21,7 @@ private:
 	Flashlight* m_flashlight = nullptr;
 	OBJMesh* m_buddha = nullptr;
 	Cube* m_cube = nullptr;
-	aie::Texture m_raccoon;
+	Quad* m_quad = nullptr;
+	aie::Texture m_earth;
 };
 
