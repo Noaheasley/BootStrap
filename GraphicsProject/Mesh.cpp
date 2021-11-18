@@ -114,7 +114,7 @@ void Mesh::onDraw()
 {
 	int program = -1;
 	glGetIntegerv(GL_CURRENT_PROGRAM, &program);
-
+	//prevents a crash if a shader is missing
 	if (program == -1) {
 		printf("No shader bound!\n");
 		return;
@@ -124,7 +124,7 @@ void Mesh::onDraw()
 	int modelMatrix = glGetUniformLocation(program, "modelMatrix");
 	if (modelMatrix >= 0)
 		glUniformMatrix4fv(modelMatrix, 1, false, &(getTransform()->getGlobalMatrix())[0][0]);
-
+	//draws the texture on the triangle
 	glBindVertexArray(m_vertexArrayObject);
 	glDrawArrays(GL_TRIANGLES, 0, m_triCount * 3);
 }

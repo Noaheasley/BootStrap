@@ -23,12 +23,15 @@ Quad::Vertex* Quad::generateVertices(unsigned int& vertexCount, unsigned int& tr
 	vertices[4].position = { -0.5f, 0.0f, -0.5f, 1.0f };
 	vertices[5].position = { 0.5f, 0.0f, -0.5f, 1.0f };
 
+	//colors the vertices
 	for (int i = 0; i < vertexCount; i++) {
 		vertices[i].color = m_color;
 	}
+	//adds a white fade on the edges on the quad
 	vertices[0].color = { 1.0f, 1.0f, 1.0f, 1.0f };
 	vertices[5].color = { 1.0f, 1.0f, 1.0f, 1.0f };
 
+	////applies the texture on each triangle
 	//triangle 0
 	vertices[0].texCoord = { 0.0f, 1.0f };
 	vertices[1].texCoord = { 1.0f, 1.0f };

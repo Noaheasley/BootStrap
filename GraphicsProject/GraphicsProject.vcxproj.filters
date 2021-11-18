@@ -127,24 +127,12 @@
     <None Include="vertex.shader">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="Dragon.mtl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Lucy.mtl">
-      <Filter>Resource Files</Filter>
-    </None>
     <None Include="Buddha.mtl">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Bunny.mtl">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
     <CopyFileToFolders Include="Buddha.obj" />
-    <CopyFileToFolders Include="Bunny.obj" />
-    <CopyFileToFolders Include="Dragon.obj" />
-    <CopyFileToFolders Include="Lucy.obj" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="earth_diffuse.jpg">

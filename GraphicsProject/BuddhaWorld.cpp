@@ -2,6 +2,7 @@
 #include "gl_core_4_4.h"
 #include "glm/ext.hpp"
 
+//creates all the objects
 void BuddhaWorld::onStart()
 {
 	//Camera
@@ -53,13 +54,14 @@ void BuddhaWorld::onStart()
 	m_buddha->getTransform()->setScale(glm::vec3(0.1f));
 	add(m_buddha);
 }
-
+//Updates the world overtime to allow the flashlight to be moved around with the camera
 void BuddhaWorld::onUpdate(float deltaTime)
 {
 	m_flashlight->setPosition(m_camera->getTransform()->getPosition());
 	m_flashlight->getTransform()->setForward(m_camera->getTransform()->getForward());
 }
 
+//draws the world map on the plane
 void BuddhaWorld::onDraw()
 {
 	int program = -1;
@@ -76,6 +78,7 @@ void BuddhaWorld::onDraw()
 	m_quad->draw();
 }
 
+//destroys all created objects
 void BuddhaWorld::onEnd()
 {
 	destroy(m_camera);
