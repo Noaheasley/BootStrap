@@ -21,3 +21,7 @@
   shift - increase the speed of the camera
   
   right click - rotates the camera
+
+### what is the use of it
+
+this is a example of using lighting and exporting models into openGL. you can move the camera closer and light up the statue with a light that's attach to the camera
